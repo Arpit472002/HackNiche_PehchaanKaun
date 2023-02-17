@@ -7,6 +7,7 @@ import Login from "./components/login";
 import AuthProvider from "./context/userContext";
 import Signup from "./components/signup";
 import Blog from "./components/Blog";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/signup" element={<Signup />}></Route>
             <Route exact path="/blog" element={<Blog />}></Route>
+            <Route exact path="/home" element={<Home/>}></Route>
           </Routes>
         </Router>
       </AuthProvider>

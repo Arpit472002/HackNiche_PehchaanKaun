@@ -1,6 +1,4 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import card from "../images/logo512.png";
 
 const Blog = () => {
