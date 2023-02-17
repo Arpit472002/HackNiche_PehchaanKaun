@@ -27,7 +27,7 @@ function Navbar() {
               <Link to={"/home"}>
                 <a>Home</a>
               </Link>
-              <Link to={"/blogs"}>
+              <Link to={"/blog"}>
                 <a>Blogs</a>
               </Link>
               <Link to={"/jobs"}>
