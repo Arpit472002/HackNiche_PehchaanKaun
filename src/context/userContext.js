@@ -66,6 +66,7 @@ export default function AuthProvider({ children }) {
   },is_serviceman) => {
     try {
       localStorage.removeItem('token')
+      console.log(process.env.REACT_APP_PUBLIC_URL)
       const res = await axios.post(`${process.env.REACT_APP_PUBLIC_URL}/accounts/register/`, {
         first_name: firstName,
         last_name: lastName,

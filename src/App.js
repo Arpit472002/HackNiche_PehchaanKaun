@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login";
 import AuthProvider from "./context/userContext";
 import Signup from "./components/signup";
+import Navbar from "./components/Navbar";
+import Carousel from "./components/Carousel";
 
 function App() {
   return (
@@ -31,7 +33,9 @@ function App() {
           </Routes>
         </Router>
       </AuthProvider>
-      </div>
+      <Navbar/>
+      <Carousel />
+    </div>
     </>
   );
 }
