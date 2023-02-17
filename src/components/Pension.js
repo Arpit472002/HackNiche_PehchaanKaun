@@ -19,13 +19,12 @@ function Pension() {
       }
       console.log();
       var body={
-        data:{
         type_of_retirement:type,
         date_of_birth:document.getElementById('dob').value,
         date_of_joining:document.getElementById('doj').value,
         date_of_retirement:document.getElementById('dor').value,
-        sum_of_last_10_pay:document.getElementById('sum').value
-        }
+        sum_of_last_10_pay:document.getElementById('sum').value,
+        sum_of_last_month_pay:0
       }
       console.log(body);
       const res = await axios.post(
@@ -40,9 +39,12 @@ function Pension() {
     e.preventDefault()
     try {
       var body={
-        data:{
+          type_of_retirement:0,
+        date_of_birth:0,
+        date_of_joining:0,
+        date_of_retirement:0,
+        sum_of_last_10_pay:0,
         sum_of_last_month_pay:document.getElementById('sum2').value
-        }
       }
       console.log(body);
       const res = await axios.post(
