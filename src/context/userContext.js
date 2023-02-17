@@ -17,7 +17,10 @@ export default function AuthProvider({ children }) {
     }
 
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_PUBLIC_URL}/accounts/MyUser/` + userId + "/");
+      console.log( localStorage.getItem('token'));
+      var header_data={headers: {
+        'Authorization':'Token '+ localStorage.getItem('token')}}
+      const { data } = await axios.get(`${process.env.REACT_APP_PUBLIC_URL}/accounts/MyUser/` + userId + "/",header_data).catch(console.log(data));
       setUser({
         userName: data.username,
         firstName: data.first_name,
@@ -35,7 +38,6 @@ export default function AuthProvider({ children }) {
 
   const login = async ({ email, password }) => {
     try {
-      console.log(process.env.REACT_APP_PUBLIC_URL);
       localStorage.removeItem('token')
       var o =  {email: email,password: password }
       const res = await axios.post(`${process.env.REACT_APP_PUBLIC_URL}/accounts/login/`,o);
@@ -61,7 +63,7 @@ export default function AuthProvider({ children }) {
     firstName,
     lastName,
     userName,
-  }) => {
+  },is_serviceman) => {
     try {
       localStorage.removeItem('token')
       const res = await axios.post(`${process.env.REACT_APP_PUBLIC_URL}/accounts/register/`, {
@@ -70,12 +72,13 @@ export default function AuthProvider({ children }) {
         email: email,
         username: userName,
         password: password,
+        is_serviceman:is_serviceman
       });
 
       // @ Sucessful
       if (res.data.username === userName) {
         setUser(res.data);
-        toast.success("Verification Mail Sent.");
+        toast.success("Signed up Successfully.");
         return { ...res.data, success: true };
       }
       // @ Email exists aready

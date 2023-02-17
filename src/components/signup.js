@@ -1,7 +1,7 @@
 import { useUser } from "../context/userContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import logoimg from "../images/logo512.png"
+import logoimg from "../images/logo512.png";
 
 export default function Signup() {
   const { setUser } = useUser();
@@ -22,21 +22,20 @@ export default function Signup() {
   //$ Submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    if(document.getElementById('Yes').checked){
+      setUserDetails((prev) => ({ ...prev, is_serviceman:true }));
+    }
     if (userDetails.password !== userDetails.confirmPassword) return;
 
-    const res = await register(userDetails);
+    const res = await register(userDetails,document.getElementById('Yes').checked);
 
     // if (res.success) router.push("/login");
   };
 
   return (
     <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content p-[0.5rem] sm:p-[1rem] gap-[1rem] lg:gap-[8rem] flex-col lg:flex-row">
-        <img
-          src={logoimg}
-          className="max-w-[10rem]  sm:max-w-sm rounded-lg"
-        />
+      <div className="hero-content sm:p-[1rem] gap-[1rem] lg:gap-[8rem] flex-col lg:flex-row">
+        <img src={logoimg} className="max-w-[10rem]  sm:max-w-sm rounded-lg" />
 
         <div className="card text-[0.8rem] md:text-[0.875rem] flex-shrink-0 w-full max-w-[15rem] sm:max-w-sm  shadow-lg md:shadow-2xl bg-base-100">
           {/* //? Form */}
@@ -46,34 +45,34 @@ export default function Signup() {
           >
             {/* //@ First name last name */}
             <div className="form-control">
-                <label className="label hidden md:block">
-                  <span className="label-text">Name</span>
+              <label className="label hidden md:block">
+                <span className="label-text">Name</span>
+              </label>
+              <div className="flex flex-col md:flex-row justify-around">
+                <label className="label block md:hidden">
+                  <span className="label-text">First Name</span>
                 </label>
-                <div className="flex flex-col md:flex-row justify-around">
-                  <label className="label block md:hidden">
-                    <span className="label-text">First Name</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="first-name"
-                    name="firstName"
-                    onChange={handleChange}
-                    className="input input-bordered"
-                    style={{ width: "9.5rem" }}
-                    required
-                  />
-                  <label className="label block md:hidden">
-                    <span className="label-text">Last Name</span>
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="last-name"
-                    className="input input-bordered"
-                    style={{ width: "9.5rem" }}
-                    name="lastName"
-                    onChange={handleChange}
-                    required
-                  />
+                <input
+                  type="text"
+                  placeholder="first-name"
+                  name="firstName"
+                  onChange={handleChange}
+                  className="input input-bordered"
+                  style={{ width: "9.5rem" }}
+                  required
+                />
+                <label className="label block md:hidden">
+                  <span className="label-text">Last Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="last-name"
+                  className="input input-bordered"
+                  style={{ width: "9.5rem" }}
+                  name="lastName"
+                  onChange={handleChange}
+                  required
+                />
               </div>
             </div>
 
@@ -108,6 +107,7 @@ export default function Signup() {
                 required
               />
             </div>
+            
 
             {/* //@ Password */}
             <div className="form-control">
@@ -140,7 +140,44 @@ export default function Signup() {
                 required
               />
             </div>
-
+            {/* //@ Serviceman*/}
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Are You Military Serviceman?</span>
+              </label>
+              <div class="flex justify-evenly">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="Yes"
+                    value="option1"
+                  />
+                  <label
+                    class="form-check-label inline-block text-gray-800"
+                    for="inlineRadio10"
+                  >
+                    Yes
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                    type="radio"
+                    name="inlineRadioOptions"
+                    id="No"
+                    value="option2"
+                  />
+                  <label
+                    class="form-check-label inline-block text-gray-800"
+                    for="inlineRadio20"
+                  >
+                    No
+                  </label>
+                </div>
+              </div>
+            </div>
             {/* //@ Submit btn */}
             <div className="form-control mt-3">
               <button
