@@ -23,7 +23,9 @@ class Blog_Likes(models.Model):
     def __str__(self):
         return self.blog.blog_title
 class Blog_Comments(models.Model):
-    blog=models.ForeignKey(Blogs,on_delete=models.CASCADE)
-    commented_by=models.ForeignKey(MyUser,on_delete=models.CASCADE)
+    blog=models.ForeignKey(Blogs,on_delete=models.CASCADE,null=True,blank=True)
+    commented_by=models.ForeignKey(MyUser,on_delete=models.CASCADE,null=True,blank=True)
     comment_body=models.TextField()
     comment_date=models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.blog.blog_title

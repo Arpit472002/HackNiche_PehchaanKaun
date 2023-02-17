@@ -28,3 +28,20 @@ class BlogLikeView(generics.CreateAPIView):
         Blog_Likes.objects.create(blog=blog_instance,liked_by=self.request.user)
         return Response("Blog Liked")
 
+class BlogCommentView(generics.ListCreateAPIView):
+    queryset=Blogs.objects.all()
+    serializer_class=BlogListSerializer
+    def post(self,request):
+        blog_id=self.request.GET.get('blog_id')
+        blog_detail=Blogs.objects.get(id=blog_id)
+        serializer=BlogCommentPostSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(commented_by=self.request.user,blog=blog_detail)
+            return Response(serializer.data)
+        return Response(serializer.errors)
+    def get(self,request):
+        blog_id=self.request.GET.get('blog_id')
+        blog_detail=Blogs.objects.get(id=blog_id)
+        query=Blog_Comments.objects.filter(blog=blog_detail)
+        serializer=BlogCommentListSerializer(query,many=True)
+        return Response(serializer.data)
