@@ -7,7 +7,7 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
    openapi.Info(
-      title=" Easing the lives of servicemen",
+      title="ServiceMen Project",
       default_version='v1',
       description="A place to store files",
       terms_of_service="https://www.google.com/policies/terms/",
