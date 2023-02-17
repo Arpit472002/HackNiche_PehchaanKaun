@@ -111,32 +111,40 @@ class PensionCalculator(generics.ListAPIView):
     queryset=Event_Interested.objects.all()
     serializer_class=InterestedEventSerializer
     def post(self,request):
-        type_of_retirement=self.request.POST.get('type_of_retirement')
-        date_of_birth=int(datetime.datetime.strptime(self.request.POST.get('date_of_birth'),"%Y-%m-%d").date().year)
-        date_of_joining=int(datetime.datetime.strptime(self.request.POST.get('date_of_joining'),"%Y-%m-%d").date().year)
-        date_of_retirement=int(datetime.datetime.strptime(self.request.POST.get('date_of_retirement'),"%Y-%m-%d").date().year)
-        k=self.request.POST.get('sum_of_last_10_pay')
-        if k:
-            sum_of_last_10_pay=int(k)
-        l=self.request.POST.get('sum_of_last_month_pay')
-        if l:
-            sum_of_last_month_pay=int(l)
-        if l:
-            return Response(sum_of_last_month_pay*0.30)
+        type_of_retirement=request.data['type_of_retirement']
+        try:
+            date_of_birth=int(datetime.datetime.strptime(request.data['date_of_birth'],"%Y-%m-%d").date().year)
+        except:
+            pass
+        try:
+            date_of_joining=int(datetime.datetime.strptime(request.data['date_of_joining'],"%Y-%m-%d").date().year)
+        except:
+            pass
+        try:
+            date_of_retirement=int(datetime.datetime.strptime(request.data['date_of_retirement'],"%Y-%m-%d").date().year)
+        except:
+            pass
+        try:
+            sum_of_last_10_pay=int(request.data['sum_of_last_10_pay'])
+        except:
+            pass
+        sum_of_last_month_pay=int(request.data['sum_of_last_month_pay'])
+        if sum_of_last_month_pay:
+            return Response(f"₹ {0.30*sum_of_last_month_pay}")
         else:
             if type_of_retirement=="Voluntary":
                 if date.today().year-date_of_birth in range(0,33):
-                    return Response("No Pension:(")
+                    return Response("No Pension!")
                 elif date.today().year-date_of_birth in range(33,39):
                     if date_of_retirement-date_of_joining in range(15,17):
-                        return Response("₹",0.30*sum_of_last_10_pay/10)
+                        return Response(f"₹ {0.30*sum_of_last_10_pay/10}")
                     elif date_of_retirement-date_of_joining in range(17,19):
-                        return Response("₹",0.32*sum_of_last_10_pay/10)
+                        return Response(f"₹ {0.32*sum_of_last_10_pay/10}")
                     else:
-                        return Response("₹",0.35*sum_of_last_10_pay/10)
+                        return Response(f"₹ {0.35*sum_of_last_10_pay/10}")
                 elif date.today().year-date_of_birth in range(39,44):
                     if date_of_retirement-date_of_joining in range(21,23):
-                        return Response("₹",0.37*sum_of_last_10_pay/10)
+                        return Response(f"₹ {0.37*sum_of_last_10_pay/10}")
                     elif date_of_retirement-date_of_joining in range(23,25):
                         return Response(f"₹ {0.39*sum_of_last_10_pay/10}")
                     else:

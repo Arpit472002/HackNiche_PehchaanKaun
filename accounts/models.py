@@ -14,6 +14,7 @@ class MyUser(AbstractUser):
     bio               = models.TextField(null=True, blank=True)
     dob               = models.DateField(null=True, blank=True)
     profile_pic       = models.ImageField(upload_to='images/',default='default.jpg') 
+    reward_points     = models.IntegerField(default=0)
     is_serviceman     = models.BooleanField(default=True)
     is_retired        = models.BooleanField(default=False)
     created_at        = models.DateTimeField(auto_now_add=True)
