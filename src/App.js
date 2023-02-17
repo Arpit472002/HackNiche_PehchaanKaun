@@ -6,8 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/login";
 import AuthProvider from "./context/userContext";
 import Signup from "./components/signup";
-import Navbar from "./components/Navbar";
-import Carousel from "./components/Carousel";
+import Blog from "./components/Blog";
 
 function App() {
   return (
@@ -30,11 +29,10 @@ function App() {
           <Routes>
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/signup" element={<Signup />}></Route>
+            <Route exact path="/blog" element={<Blog />}></Route>
           </Routes>
         </Router>
       </AuthProvider>
-      <Navbar/>
-      <Carousel />
     </div>
     </>
   );
