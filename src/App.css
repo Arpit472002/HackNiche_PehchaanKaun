@@ -37,3 +37,25 @@
   }
 }
 
+.read-more-link{
+  color: blueviolet;
+  text-decoration: underline;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.extra-content{
+  font-weight: 500;
+}
+
+[id='toggle-heart'] {
+  position: absolute;
+  left: -100vw;
+}
+
+[for='toggle-heart'] {
+  color: #aab8c2;
+}
+
+[id='toggle-heart']:checked + label {
+  color: #e2264d;
+}
