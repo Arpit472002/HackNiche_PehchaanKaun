@@ -2,9 +2,6 @@ import React from "react";
 import card from "../images/image2.jpeg";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
-import Toggle from 'react-toggle'
-
-
 
 const Blog = () => {
   const [readMore, setReadMore] = useState(false);
@@ -32,7 +29,6 @@ const Blog = () => {
     <div>
       <Navbar />
     <div className="p-10 w-full">
-      <div className="text-3xl mb-12">Blogs</div>
       {/* First Blog */}
       <div className="hero bg-base-200 rounded-2xl">
         <div className="flex flex-row">

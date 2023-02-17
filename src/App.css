@@ -37,6 +37,13 @@
   }
 }
 
+.Job{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
 .read-more-link{
   color: blueviolet;
   text-decoration: underline;
