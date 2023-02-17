@@ -24,8 +24,8 @@ function SpecificEvent() {
             title: res.data.event_name,
             date: res.data.event_date,
             venue: res.data.event_venue,
-            create_date:res.data.event_create_date
-
+            create_date:res.data.event_create_date,
+            interested: res.data.interested_count
           }
         );
       } catch (error) {
@@ -43,14 +43,29 @@ function SpecificEvent() {
           />
           <div>
             <h1 className="text-5xl font-bold">{events.title}</h1>
-            <p className="py-6">
+            <p className="pt-6 pb-2">
               {events.desc}
             </p>
-            <div className="gap-[10rem]">
+            <div>
+            <div className="flex gap-2 items-center">
+            <i class="fa-sharp fa-solid fa-calendar-days"></i><span className="">{events.date}</span>
+            <i class="fa-solid fa-location-dot"></i><span className="">{events.venue}</span>
+            </div>
+            </div>
+            <div className="mt-5">
+                {events.interested} People are interested for the event!!!
+            </div>
+            <div className="flex gap-5 pt-5">
+            <div >
             <button className="btn btn-primary">Interested</button>
+
+            </div>
+            <div >
             <button className="btn btn-primary">Back</button>
 
             </div>
+            </div>
+            
           </div>
         </div>
       </div>
