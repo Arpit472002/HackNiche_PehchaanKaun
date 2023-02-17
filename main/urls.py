@@ -7,5 +7,6 @@ urlpatterns = [
     path('job_post/',PostJobView.as_view(),name='job_post'),
     path('job_apply/',ApplyForJob.as_view(),name='job_apply'),
     path('event_list/',EventListView.as_view(),name='event_list'),
-    path('event_detail/<int:pk>/',EventDetailView.as_view(),name='event_detail')
+    path('event_detail/<int:pk>/',EventDetailView.as_view(),name='event_detail'),
+    path('pension_calculator/',PensionCalculator.as_view(),name='pension_calculator')
 ]

@@ -56,7 +56,21 @@ class EventSerializer(serializers.ModelSerializer):
         model=Event
         fields="__all__"
 
+class EventDetailSerializer(serializers.ModelSerializer):
+    interested_count = serializers.SerializerMethodField('get_interested_count')
+    def get_interested_count(self,obj):
+        count=Event_Interested.objects.filter(event=obj).count()
+        return count
+    class Meta:
+        model=Event
+        fields="__all__"
+
 class InterestedEventSerializer(serializers.ModelSerializer):
     class Meta:
         model=Event_Interested
         fields="__all__"
+
+# class PensionCalculatorSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=PensionCalculator
+#         fields="__all__"

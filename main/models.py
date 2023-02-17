@@ -38,6 +38,8 @@ class Job_Posting(models.Model):
     salary_offered              = models.IntegerField(default=0)
     job_description             = models.TextField(blank=True, null=True)
     work_from_home              = models.BooleanField(default=False)
+    job_image                   = models.ImageField(upload_to='job_images/',default='default_job.jpg')
+    job_location                = models.CharField(max_length=200,blank=True, null=True)
     def __str__(self):
         return self.job_title
 
@@ -67,4 +69,17 @@ class Event(models.Model):
 class Event_Interested(models.Model):
     event=models.ForeignKey(Event,on_delete=models.CASCADE)
     interested_user=models.ForeignKey(MyUser,on_delete=models.CASCADE)
+    def __str__(self):
+        return self.event.event_name
     
+# class PensionCalculator(models.Model):
+#     type_of_retirement = models.CharField(max_length=200)
+#     date_of_birth = models.DateField(null=True,blank=True)
+#     date_of_joining = models.DateField(null=True,blank=True)
+#     date_of_retirement = models.DateField(null=True,blank=True)
+#     sum_of_last_10_pay = models.IntegerField(null=True,blank=True)
+#     sum_of_last_month_pay = models.IntegerField(null=True,blank=True)
+#     basic_pension = models.FloatField(null=True,blank=True)
+#     family_pension = models.FloatField(null=True, blank=True)
+#     def __str__(self):
+#         return self.user.username
