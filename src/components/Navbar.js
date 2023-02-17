@@ -18,7 +18,7 @@ function Navbar() {
             </div>
           </label>
           <div className="flex-1">
-            <a className="normal-case text-white text-xl">Company Name</a>
+            <a className="normal-case text-white text-2xl ml-4">After Battle</a>
           </div>
         </div>
         <div>
@@ -38,6 +38,9 @@ function Navbar() {
               </Link>
               <Link to={"/pension"}>
                 <a>Pension</a>
+              </Link>
+              <Link to={"/mentorship"}>
+                <a>Mentorship</a>
               </Link>
             </li>
           </ul>
