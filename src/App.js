@@ -8,6 +8,10 @@ import Login from "./components/login";
 import AuthProvider from "./context/userContext";
 import Signup from "./components/signup";
 import Job from "./components/job";
+import Blog from "./components/Blog";
+import Home from "./components/Home";
+import Events from "./components/Events";
+import SpecificEvent from "./components/SpecificEvent";
 
 function App() {
   return (
@@ -31,10 +35,15 @@ function App() {
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/signup" element={<Signup />}></Route>
             <Route exact path="/Job" element={<Job />}></Route>
+            <Route exact path="/blog" element={<Blog />}></Route>
+            <Route exact path="/home" element={<Home/>}></Route>
+            <Route exact path="/events" element={<Events/>}></Route>
+            <Route path="/eventsdetails" element={<SpecificEvent/>}></Route>
+
           </Routes>
         </Router>
       </AuthProvider>
-      </div>
+    </div>
     </>
   );
 }
