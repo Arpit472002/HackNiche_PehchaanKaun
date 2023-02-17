@@ -10,7 +10,7 @@ function Navbar() {
   }
   return (
     <>
-      <div className="navbar bg-base-100 flex justify-between border sticky top-0 z-50">
+      <div className="navbar bg-base-100 flex justify-between border fixed top-0 z-50">
         <div className="flex justify-evenly ">
           <label tabIndex={0} className=" btn-circle avatar">
             <div className="w-10 rounded-full">
