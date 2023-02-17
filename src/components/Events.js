@@ -3,6 +3,8 @@ import EventItem from "./EventItem";
 import Navbar from "./Navbar";
 import axios from "axios";
 import { useState,useEffect } from "react";
+
+
 function Events() {
   const [events, setEvents] = useState([]);
   useEffect(() => {
