@@ -4,3 +4,5 @@ from .models import *
 admin.site.register(Blogs)
 admin.site.register(Blog_Likes)
 admin.site.register(Blog_Comments)
+admin.site.register(Job_Posting)
+admin.site.register(Applied_Jobs)

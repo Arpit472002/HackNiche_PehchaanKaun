@@ -39,3 +39,24 @@ class BlogCommentPostSerializer(serializers.ModelSerializer):
     class Meta:
         model=Blog_Comments
         fields=["comment_body"]
+
+class JobListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Job_Posting
+        fields="__all__"
+
+class JobApplySerializer(serializers.ModelSerializer):
+    job=JobListSerializer()
+    class Meta:
+        model=Applied_Jobs
+        fields="__all__"
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Event
+        fields="__all__"
+
+class InterestedEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Event_Interested
+        fields="__all__"
