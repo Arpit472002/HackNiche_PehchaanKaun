@@ -93,10 +93,11 @@ const Mentorship = () => {
         </div>
       </div>
       <div className="flex justify-center">
-
-      <button class=" btn btn-wide bg-green-900 text-center hover:bg-base-500 text-white font-bold py-2 px-4 rounded">
-        Enter Room
-      </button>
+        <button class=" btn btn-wide bg-green-900 text-center text-white font-bold py-2 px-4 rounded">
+          <a href="https://chat.1410inc.xyz/?room=Mentorship_Sessions_08qhw4cusf2l">
+            Enter Room
+          </a>
+        </button>
       </div>
     </div>
   );

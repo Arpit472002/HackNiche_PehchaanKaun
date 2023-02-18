@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../context/userContext";
-import logoimg from "../images/logo512.png"
+import logoimg from "../images/logo2.png"
 
 export default function Login() {
   const { setUser } = useUser();
@@ -23,7 +23,7 @@ export default function Login() {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-white">
       <div className="hero-content flex-col ">
         <div className="avatar">
           <div div className="w-20 md:w-24">
@@ -31,7 +31,7 @@ export default function Login() {
           </div>
         </div>
         <div className="text-center ">
-          <h1 className="text-sm md:text-xl font-bold">Sign-in to GitBase</h1>
+          <h1 className="text-sm md:text-xl font-bold">Sign-in to After Battle</h1>
         </div>
 
         <div className="card text-[0.8rem] md:text-[0.875rem] flex-shrink-0 w-full max-w-[13rem] md:max-w-sm shadow-lg md:shadow-2xl bg-base-100">

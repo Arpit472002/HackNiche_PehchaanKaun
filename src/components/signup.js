@@ -1,7 +1,7 @@
 import { useUser } from "../context/userContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import logoimg from "../images/logo512.png";
+import logoimg from "../images/logo2.png";
 
 export default function Signup() {
   const { setUser } = useUser();
@@ -33,7 +33,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-white">
       <div className="hero-content sm:p-[1rem] gap-[1rem] lg:gap-[8rem] flex-col lg:flex-row">
         <img src={logoimg} className="max-w-[10rem]  sm:max-w-sm rounded-lg" />
 

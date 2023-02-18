@@ -1,5 +1,5 @@
 import React from "react";
-import logoimg from "../images/home.svg";
+import logoimg from "../images/logo.png";
 import { useUser } from "../context/userContext";
 import { Link } from "react-router-dom";
 
@@ -12,8 +12,8 @@ function Navbar() {
     <>
       <div className="navbar bg-green-900 flex justify-between border sticky top-0 z-50">
         <div className="flex justify-evenly">
-          <label tabIndex={0} className=" btn-circle avatar">
-            <div className="w-10 rounded-full">
+          <label tabIndex={0} className=" btn-circle avatar ml-4 mr-2">
+            <div className="w-14 rounded-full">
               <img src={logoimg} />
             </div>
           </label>
