@@ -23,7 +23,9 @@ function Blog() {
           title: blog.blog_title,
           body: blog.blog_body,
           like: blog.blog_likes_count,
-          comment: blog.blog_comments_count
+          comment: blog.blog_comments_count,
+          titile_H:blog.hindi_title,
+          body_H:blog.hindi_body,
         }))
       );
     } catch (error) {
@@ -38,11 +40,13 @@ function Blog() {
             events.map((blog)=>
             <BlogItem
               title={blog.title}
-              desc={blog.desc}
+              body={blog.body}
               imgUrl={blog.imgUrl}
               like={blog.like}
               comment={blog.comment}
               id = {blog.id}
+              titile_H={blog.titile_H}
+              body_H={blog.body_H}
             />
       )}
     </div>
