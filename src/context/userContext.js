@@ -47,7 +47,7 @@ export default function AuthProvider({ children }) {
       localStorage.setItem("id", res.data.user_id);
 
       toast.success("Login Successfull");
-
+      window.location.replace(`/home`);
       refresh();
 
       return { ...res.data, success: true };
@@ -80,6 +80,7 @@ export default function AuthProvider({ children }) {
       if (res.data.username === userName) {
         setUser(res.data);
         toast.success("Signed up Successfully.");
+        window.location.replace(`/home`);
         return { ...res.data, success: true };
       }
       // @ Email exists aready
@@ -99,7 +100,7 @@ export default function AuthProvider({ children }) {
   const logout = async () => {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
-
+    window.location.replace(`/home`);
     setUser(null);
   };
 

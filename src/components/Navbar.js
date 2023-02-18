@@ -7,6 +7,7 @@ function Navbar() {
   const { logout } = useUser();
   function handleClick() {
     logout();
+    
   }
   return (
     <>
@@ -45,13 +46,27 @@ function Navbar() {
             </li>
           </ul>
         </div>
-        <div className="">
-          <Link to={"/"}>
-            <button className="btn btn-outline btn-md mr-2 my-2 text-white" onClick={handleClick}>
+        {localStorage.getItem('token')?<div className="">
+          <Link to={"/home"}>
+            <button className="btn btn-outline btn-md mr-2 my-2 text-white" refresh="true" onClick={handleClick}>
               Logout
             </button>
           </Link>
+        </div>:<>
+        <div className="">
+          <Link to={"/login"}>
+            <button className="btn btn-outline btn-md mr-2 my-2 text-white" >
+              Login
+            </button>
+          </Link>
+        
+          <Link to={"/signup"}>
+            <button className="btn btn-outline btn-md mr-2 my-2 text-white" >
+              SignUp
+            </button>
+          </Link>
         </div>
+        </>}
       </div>
     </>
   );
