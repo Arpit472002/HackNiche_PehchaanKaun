@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import leftimg from "../images/home.svg";
+import { TypeAnimation } from "react-type-animation";
 
 function Home() {
   return (
@@ -10,9 +11,18 @@ function Home() {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img src={leftimg} className="max-w-sm rounded-lg mb-16 mx-4" />
           <div>
-            <div className="text-8xl font-bold">
-              It Can Be <br/>Better After <br/>
-              <span className="text-orange-500">Battle</span>
+            <div className="text-8xl font-semibold">
+              It Can Be <br />
+              Better After <br />
+              {/* <span className="text-orange-500">Battle</span> */}
+              <TypeAnimation
+                sequence={["A War", 1000, "A Battle", 1000, "A Win", 100]}
+                //  Replacing previous Text
+                wrapper="h2"
+                speed={40}
+                repeat={Infinity}
+                className="text-orange-500 text-10xl font-bold"
+              />
             </div>
             <p className="py-6 text-xl">
               Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda

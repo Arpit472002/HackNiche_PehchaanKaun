@@ -32,7 +32,7 @@ function Blog() {
   };
 
   return (
-    <div>
+    <div className="overflow-y-hidden">
       <Navbar />
       {
             events.map((blog)=>

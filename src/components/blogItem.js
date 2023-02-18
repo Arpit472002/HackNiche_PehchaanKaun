@@ -33,8 +33,8 @@ function BlogItem({ imgUrl, title, desc, like, comment, id }) {
   };
 
   return (
-    <div className="p-10 w-full">
-      <div className="hero bg-base-200 rounded-2xl">
+    <div className="p-10">
+      <div className="bg-base-200 rounded-2xl">
         <div className="flex flex-row">
           <img
             src={`${process.env.REACT_APP_PUBLIC_URL}${imgUrl}`}
@@ -47,14 +47,17 @@ function BlogItem({ imgUrl, title, desc, like, comment, id }) {
               <div className="pl-8">
                 <h1 className="text-2xl mt-4 font-bold">{title}</h1>
                 <p className="py-6">
-                  {desc}
+                dolor sit amet consectetur adipisicing elit. Qui,
+                        consectetur nequeab porro quasi culpa nulla rerum quis
+                        minus voluptatibus sed hic ad quo sint, libero commodi
+                        officia aliquam! Maxime.lo voluptatibus sed hic ad quo sint, libero voluptatibus sed hic ad quo sint, libero
                   <a
                     className="read-more-link"
                     onClick={() => {
                       setReadMore(!readMore);
                     }}
                   >
-                    <h2>{readMore ? "Read Less" : "Read More"}</h2>
+                    <h2>{readMore ? "" : "Read More"}</h2>
                   </a>
                   {readMore && (
                     <div>
@@ -63,10 +66,6 @@ function BlogItem({ imgUrl, title, desc, like, comment, id }) {
                         elit. Qui, consectetur nequeab porro quasi culpa nulla
                         rerum quis minus voluptatibus sed hic ad quo sint,
                         libero commodi officia aliquam! Maxime.lo Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Qui,
-                        consectetur nequeab porro quasi culpa nulla rerum quis
-                        minus voluptatibus sed hic ad quo sint, libero commodi
-                        officia aliquam! Maxime.lo
                       </p>
                     </div>
                   )}
@@ -75,7 +74,7 @@ function BlogItem({ imgUrl, title, desc, like, comment, id }) {
               <div className="flex flex-row pl-8 p-2 pb-6 ">
                 <div className="flex items-center mr-4">
                     <i
-                      className={`fa ${
+                      className={`fa w-full text-lg ${
                         liked ? "fa-heart text-red-500" : "fa-heart-o"
                       } mr-2`}
                       onClick={handleLike}
