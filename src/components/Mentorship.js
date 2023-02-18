@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import { TypeAnimation } from "react-type-animation";
 import dot from "../images/black-circle.png";
+import { Link } from "react-router-dom";
 
 const Mentorship = () => {
   return (
@@ -93,11 +94,11 @@ const Mentorship = () => {
         </div>
       </div>
       <div className="flex justify-center">
+        <Link to="https://chat.1410inc.xyz/?room=Mentorship_Sessions_08qhw4cusf2l">
         <button class=" btn btn-wide bg-green-900 text-center text-white font-bold py-2 px-4 rounded">
-          <a href="https://chat.1410inc.xyz/?room=Mentorship_Sessions_08qhw4cusf2l">
             Enter Room
-          </a>
         </button>
+        </Link>
       </div>
     </div>
   );
