@@ -5,6 +5,8 @@ class Blogs(models.Model):
     user=models.ForeignKey(MyUser,on_delete=models.CASCADE,null=True,blank=True)
     blog_image=models.ImageField(upload_to='blog_images/',default='default_blog.jpg')
     blog_title=models.CharField(max_length=100)
+    hindi_title=models.CharField(max_length=100,null=True,blank=True)
+    hindi_body=models.TextField(null=True,blank=True)
     blog_body=models.TextField()
     create_date=models.DateTimeField(auto_now_add=True)
     def __str__(self):
