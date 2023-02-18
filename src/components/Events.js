@@ -35,7 +35,7 @@ function Events() {
     <>
       <Navbar />
       <div className="flex justify-center">
-        <div className="text-4xl items-center">Events</div>
+        <div className="text-4xl items-center m-8">Events</div>
       </div>
       <div className="flex justify-center">
         <div className="grid grid-cols-3 items-center gap-[10rem]">

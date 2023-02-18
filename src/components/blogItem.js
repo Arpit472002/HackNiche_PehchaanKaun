@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
-function BlogItem({ imgUrl, title, desc, like, comment, id }) {
+function BlogItem({ imgUrl, title, body, like, comment, id,titile_H,body_H }) {
   const [readMore, setReadMore] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [title_, setTitle] = useState(title);
+  const [bodys, setBodys] = useState(body);
   const [likeCount, setLikeCount] = useState(like);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
@@ -32,43 +34,27 @@ function BlogItem({ imgUrl, title, desc, like, comment, id }) {
     setShowCommentSection(true);
   };
 
+  function handleClick(params) {
+    setTitle(titile_H);
+    setBodys(body_H);
+  }
   return (
     <div className="p-10">
       <div className="bg-base-200 rounded-2xl">
         <div className="flex flex-row">
           <img
             src={`${process.env.REACT_APP_PUBLIC_URL}${imgUrl}`}
-            className="shadow-2xl"
+            className="shadow-2xl w-[612px] h-full"
             alt="card1"
           />
   
           <div className="hero-content flex-row">
             <div className="flex flex-col">
               <div className="pl-8">
-                <h1 className="text-2xl mt-4 font-bold">{title}</h1>
+                <h1 className="text-2xl mt-4 font-bold">{title_}</h1>
                 <p className="py-6">
-                dolor sit amet consectetur adipisicing elit. Qui,
-                        consectetur nequeab porro quasi culpa nulla rerum quis
-                        minus voluptatibus sed hic ad quo sint, libero commodi
-                        officia aliquam! Maxime.lo voluptatibus sed hic ad quo sint, libero voluptatibus sed hic ad quo sint, libero
-                  <a
-                    className="read-more-link"
-                    onClick={() => {
-                      setReadMore(!readMore);
-                    }}
-                  >
-                    <h2>{readMore ? "" : "Read More"}</h2>
-                  </a>
-                  {readMore && (
-                    <div>
-                      <p className="extra-content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Qui, consectetur nequeab porro quasi culpa nulla
-                        rerum quis minus voluptatibus sed hic ad quo sint,
-                        libero commodi officia aliquam! Maxime.lo Lorem ipsum
-                      </p>
-                    </div>
-                  )}
+                    {bodys}
+                  
                 </p>
               </div>
               <div className="flex flex-row pl-8 p-2 pb-6 ">
@@ -88,6 +74,9 @@ function BlogItem({ imgUrl, title, desc, like, comment, id }) {
                     <i className="fa fa-comment mr-2"></i>
                     Comment
                   </button>
+                  <div className="btn btn-outline" onClick={handleClick}>
+                  हिंदी में अनुवाद करें
+                  </div>
                 </div>
               </div>
               {showCommentSection && (
@@ -121,6 +110,7 @@ function BlogItem({ imgUrl, title, desc, like, comment, id }) {
                         Add Comment
                       </button>
                     </div>
+                  
                   </form>
                 </div>
               )}
