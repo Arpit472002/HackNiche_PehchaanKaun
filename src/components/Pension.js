@@ -179,7 +179,7 @@ function Pension() {
             <div></div>
           </div>
           <div className="flex ml-12">
-            <button className="btn btn-active btn-wide" onClick={getPension1}>Calculate</button>
+            <button className="btn btn-active btn-wide" style={{backgroundColor:"rgb(20 83 45 / var(--tw-bg-opacity))"}} onClick={getPension1}>Calculate</button>
           </div>
         </form>
         <div>
@@ -217,7 +217,7 @@ function Pension() {
             <div></div>
           </div>
             <div className="flex ml-12">
-              <button className="btn btn-active btn-wide" onClick={getPension2}>Calculate</button>
+              <button className="btn btn-active btn-wide" style={{backgroundColor:"rgb(20 83 45 / var(--tw-bg-opacity))"}} onClick={getPension2}>Calculate</button>
             </div>
           </form>
         </div>

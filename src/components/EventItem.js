@@ -25,12 +25,12 @@ function EventItem({
           </div>
           <p>{desc.slice(0, 100)}...</p>
           <div className="flex justify-between items-center">
-            <div className="text-gray-800 text-bold">{date}</div>
-            <div className="text-gray-800 text-bold">{venue}</div>
+            <div className="text-gray-800 text-bold"><i className="fa-sharp fa-solid fa-calendar-days mr-2"></i>{date}</div>
+            <div className="text-gray-800 text-bold"><i className="fa-solid fa-location-dot mr-2"></i>{venue}</div>
           </div>
           <div className="card-actions flex justify-center items-center">
             <Link to={`/eventsdetails`}>
-              <button className="btn btn-primary btn-wide" onClick={onButtonClick}>View Details</button>
+              <button className="btn btn-primary btn-wide" style={{backgroundColor:"rgb(20 83 45 / var(--tw-bg-opacity))"}} onClick={onButtonClick}>View Details</button>
             </Link>
           </div>
         </div>

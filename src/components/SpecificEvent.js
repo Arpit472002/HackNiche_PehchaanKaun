@@ -3,9 +3,12 @@ import logoimg from "../images/military.jpeg"
 import { useState,useEffect } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
+import { Link } from "react-router-dom";
 
 function SpecificEvent() {
     const [events, setEvents] = useState([]);
+    const [click, setClick] = useState(true);
+    const [interested, setInterested] = useState();
     useEffect(() => {
       getEvents();
     }, []);
@@ -28,10 +31,21 @@ function SpecificEvent() {
             interested: res.data.interested_count
           }
         );
+        setInterested(res.data.interested_count)
       } catch (error) {
         console.log(error);
       }
     };  
+    function handleClick(e) {
+      e.preventDefault()
+      setInterested(interested+1)
+      if(click){
+        setClick(false)
+      }
+      else{
+        setClick(true)
+      }
+    }
   return (
     <>
     <Navbar/>
@@ -53,15 +67,18 @@ function SpecificEvent() {
             </div>
             </div>
             <div className="mt-5">
-                {events.interested} People are interested for the event!!!
+                {interested} People are interested for the event!!!
             </div>
             <div className="flex gap-5 pt-5">
             <div >
-            <button className="btn btn-primary">Interested</button>
-
+            {click?<button className="btn btn-primary btn-outline" onClick={handleClick}>Interested</button>:<button className="btn btn-primary" onClick={handleClick}>Interested</button>
+}
             </div>
             <div >
+              <Link to="http://localhost:3000/events">
+              
             <button className="btn btn-primary">Back</button>
+              </Link>
 
             </div>
             </div>
