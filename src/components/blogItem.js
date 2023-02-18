@@ -3,7 +3,9 @@ import { useState } from "react";
 
 function BlogItem({ imgUrl, title, body, like, comment, id,titile_H,body_H }) {
   const [readMore, setReadMore] = useState(false);
+  const [button, setButton] = useState("हिंदी में अनुवाद करें");
   const [liked, setLiked] = useState(false);
+  const [toggle, setToggle] = useState(true);
   const [title_, setTitle] = useState(title);
   const [bodys, setBodys] = useState(body);
   const [likeCount, setLikeCount] = useState(like);
@@ -35,8 +37,17 @@ function BlogItem({ imgUrl, title, body, like, comment, id,titile_H,body_H }) {
   };
 
   function handleClick(params) {
+    if(toggle){
     setTitle(titile_H);
     setBodys(body_H);
+    setButton("Translate to English")
+    setToggle(false)
+    }else{
+      setTitle(title);
+    setBodys(body);
+    setButton("हिंदी में अनुवाद करें")
+    setToggle(true)
+    }
   }
   return (
     <div className="p-10">
@@ -75,7 +86,7 @@ function BlogItem({ imgUrl, title, body, like, comment, id,titile_H,body_H }) {
                     Comment
                   </button>
                   <div className="btn btn-outline" onClick={handleClick}>
-                  हिंदी में अनुवाद करें
+                  {button}
                   </div>
                 </div>
               </div>
